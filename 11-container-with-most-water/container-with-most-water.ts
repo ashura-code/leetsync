@@ -1,39 +1,22 @@
 function maxArea(height: number[]): number {
 
+   let left_i = 0;
+   let right_i = height.length-1;
+   let max_water = 0;
 
-    let left_i = 0;
-    let right_i = height.length-1;
-    let max_water = 0;
+   while(left_i < right_i){ 
+        let area = Math.min(height[left_i],height[right_i])*(right_i-left_i);
+        max_water = Math.max(max_water,area);
 
-    while(right_i > left_i){ 
+         height[left_i]<height[right_i] ? left_i++ : right_i--;
+   }
 
-        let area =0;
-
-         if(height[left_i]>height[right_i]){ 
-             area = height[right_i]*(right_i - left_i);
-             right_i--;
-         }
-         else if(height[left_i]<height[right_i]){ 
-             area = height[left_i]*(right_i - left_i);
-             left_i++;
-         }
-         else{ 
-              area = height[right_i]*(right_i - left_i);
-              left_i++;
-              right_i--;
-         }
-         
-         if(area > max_water){ 
-              max_water = area;
-         }
-         
-    }
-
-    return max_water;
-
-
-    
-
-
+   return max_water;
     
 };
+
+
+
+
+    
+        
