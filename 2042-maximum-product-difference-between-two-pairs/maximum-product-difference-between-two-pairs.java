@@ -30,12 +30,6 @@ class Solution {
                 
            }
 
-        //    if(num < smallest) {
-        //         smallest_2 = smallest;
-        //         smallest = num;
-        //    }
-
-
             
         }
 
