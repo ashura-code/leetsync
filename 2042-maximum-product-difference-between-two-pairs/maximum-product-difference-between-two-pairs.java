@@ -1,38 +1,27 @@
 class Solution {
     public int maxProductDifference(int[] nums) {
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
 
-        int largest = 0;
-        int largest_2 = 0;
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
 
-        int smallest = 10000;
-        int smallest_2 = 10000;
+        for (int num : nums) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest) {
+                secondLargest = num;
+            }
 
-        for(int num:nums){
-           if(num > largest_2){ 
-                if(num >= largest){ 
-                     largest_2 = largest;
-                     largest = num;
-                }
-                else{
-                    largest_2 =num;
-                }
-                
-           }
-
-           if(num < smallest_2){ 
-                if(num <= smallest){ 
-                     smallest_2 = smallest;
-                     smallest = num;
-                }
-                else{
-                    smallest_2 =num;
-                }
-                
-           }
-
-            
+            if (num < smallest) {
+                secondSmallest = smallest;
+                smallest = num;
+            } else if (num < secondSmallest) {
+                secondSmallest = num;
+            }
         }
 
-        return (largest*largest_2)-(smallest*smallest_2);
+        return (largest * secondLargest) - (smallest * secondSmallest);
     }
 }
