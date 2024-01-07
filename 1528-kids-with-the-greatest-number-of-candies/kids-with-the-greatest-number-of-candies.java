@@ -11,12 +11,13 @@ class Solution {
         }
 
         for(int i=0;i<candies.length;i++){
-             if(candies[i]+extraCandies >= largest){ 
-                  result.add(true);
-             }
-             else{ 
-                 result.add(false);
-             }
+            result.add(candies[i] + extraCandies >= largest);
+            //  if(candies[i]+extraCandies >= largest){ 
+            //       result.add(true);
+            //  }
+            //  else{ 
+            //      result.add(false);
+            //  }
         }
 
         return result;
