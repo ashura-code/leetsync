@@ -42,10 +42,8 @@ class Solution {
             int curr_height = Math.min(height[left],height[right]);
             int curr_width = right-left;
             int curr_water = curr_height * curr_width;
+             max_water = Math.max(max_water, curr_water);
 
-            if(curr_water  > max_water){ 
-                 max_water = curr_water;
-            }
 
             if (height[left] < height[right]) {
                 left++;
