@@ -27,3 +27,12 @@ class Solution {
 
     }
 }
+
+
+// loop through the string
+// add chars to set/arrlist until it finds a duplicate
+//find the original character's index in the set/arrlist
+// remove elements from index 0 to the og character's index including og char
+// now add the duplicate value to the arraylist which is not a duplicate anymore.
+//now compare with the max_value and size of the set/arrlist
+// return max value after the loop is completed.
