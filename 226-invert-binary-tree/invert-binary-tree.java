@@ -30,3 +30,9 @@ class Solution {
         
     }
 }
+
+//recursive method: 
+// if the curr_node is the leaf node , we return null
+//if its not , we swap its children
+//we call the function for the left child of the curr
+//we call the function for the right child of the curr
