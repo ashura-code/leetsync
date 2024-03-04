@@ -1,29 +1,30 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-
-        if(s.length() != t.length()){
-            return false;
+        if (s.length() != t.length()) {
+            return false; // Anagrams must have the same length
         }
 
-         int[] a = new int[s.length()];
-         int[] b = new int[t.length()];
+        int[] counts = new int[26]; // Assuming input consists of lowercase English letters
 
-         for(int i=0;i<s.length();i++){ 
-               char curr_char_s = s.charAt(i);
-               char curr_char_t=t.charAt(i);
+        // Count occurrences in string s
+        for (char c : s.toCharArray()) {
+            counts[c - 'a']++;
+        }
 
-               int curr_int_s = curr_char_s;
-               int curr_int_t = curr_char_t;
+        // Add occurrences in string t and check for even occurrences
+        for (char c : t.toCharArray()) {
+            if (--counts[c - 'a'] < 0) {
+                return false; // More occurrences of c in t than in s
+            }
+        }
 
-               a[i] = curr_int_s;
-               b[i] = curr_int_t;
-         }
+        // Check if all counts are even
+        for (int count : counts) {
+            if (count % 2 != 0) {
+                return false; // Odd occurrence found
+            }
+        }
 
-         Arrays.sort(a);
-         Arrays.sort(b);
-
-          
-         return Arrays.equals(a,b);
-
+        return true; // All characters in s and t match
     }
 }
