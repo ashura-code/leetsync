@@ -32,7 +32,7 @@ class Solution {
         ListNode left = head;
         ListNode right = prev;
 
-        while(left!=null && right!=null){
+        while(right!=null){
              if(left.val != right.val){
                  return false;
              }
@@ -43,7 +43,6 @@ class Solution {
         return true;
 
         
-
-        
+   
     }
 }
