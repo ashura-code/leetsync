@@ -8,9 +8,7 @@ class Solution {
            if(map[nums[i]]){
                return nums[i];
            }
-           else{
              map[nums[i]]=true;
-           }
        }
 
        return 0;
