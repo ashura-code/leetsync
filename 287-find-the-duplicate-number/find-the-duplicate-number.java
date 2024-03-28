@@ -6,6 +6,7 @@ class Solution {
 
        for(int i=0;i<length;i++){ 
            if(map[nums[i]]){
+                System.gc();
                return nums[i];
            }
            map[nums[i]]=true;
