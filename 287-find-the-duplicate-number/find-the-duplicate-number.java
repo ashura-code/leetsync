@@ -5,7 +5,7 @@ class Solution {
        boolean[] map = new boolean[length];
 
        for(int i=0;i<length;i++){ 
-           if(map[nums[i]]==true){
+           if(map[nums[i]]){
                return nums[i];
            }
            else{
