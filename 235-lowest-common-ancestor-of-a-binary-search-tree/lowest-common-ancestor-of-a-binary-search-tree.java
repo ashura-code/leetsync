@@ -10,20 +10,28 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-         
-          
-          if(root == null || root == p || root==q){ 
-              return root;
+
+          if(p.val<=q.val) {
+             return lca(root,p,q);
+          }
+          else{ 
+             return lca(root,q,p);
           }
          
-          TreeNode left = lowestCommonAncestor(root.left,p,q);
-          TreeNode right = lowestCommonAncestor(root.right,p,q);
 
-          if(left != null && right !=null){ 
+    }
+
+    public TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
+
+        if(p.val <= root.val && q.val>=root.val){ 
              return root;
-          }
-
-          return left!=null ? left:right;
-        
+        }
+        else if(p.val <=root.val && q.val <= root.val){ 
+             return lca(root.left,p,q);
+        }
+        else{ 
+             return lca(root.right,p,q);
+        }
+         
     }
 }
