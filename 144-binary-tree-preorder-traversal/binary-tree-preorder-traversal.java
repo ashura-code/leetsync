@@ -1,28 +1,21 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    List<Integer> arr = new ArrayList<>();
     public List<Integer> preorderTraversal(TreeNode root) {
-       if(root==null)return new ArrayList<>();
+        List<Integer> arr = new ArrayList<>();
+        if (root == null) return arr;
 
-       arr.add(root.val);
-       preorderTraversal(root.left);
-       preorderTraversal(root.right);
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
 
-       return arr;
-        
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            arr.add(curr.val);
+            
+            // Note the order of pushing to the stack:
+            // Right child is pushed first so that left child is processed first (since stack is LIFO).
+            if (curr.right != null) stack.push(curr.right);
+            if (curr.left != null) stack.push(curr.left);
+        }
+
+        return arr;
     }
 }
