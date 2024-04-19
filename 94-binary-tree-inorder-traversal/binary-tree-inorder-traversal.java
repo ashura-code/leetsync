@@ -18,7 +18,7 @@ class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         if(root == null) {
             //  return new ArrayList<>();
-            return arr;
+            return new ArrayList<>();
         }
         
         if(root.left!=null)inorderTraversal(root.left);
