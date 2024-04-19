@@ -21,9 +21,9 @@ class Solution {
             return new ArrayList<>();
         }
         
-        if(root.left!=null)inorderTraversal(root.left);
-        arr.add(root.val);
-        if(root.right!=null)inorderTraversal(root.right);
+        inorderTraversal(root.left);
+        arr.add(root.val); 
+        inorderTraversal(root.right);
         return arr;
     }
 }
