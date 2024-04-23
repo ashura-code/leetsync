@@ -29,8 +29,4 @@ class Solution {
           if(root.right!=null) dfs(root.right,arr);
 
     }
-
-    
-
-    
 }
