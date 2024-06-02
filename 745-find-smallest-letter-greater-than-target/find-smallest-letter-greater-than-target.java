@@ -16,7 +16,7 @@ class Solution {
              r = mid-1;
              res = letters[mid];
          }
-         else if(letters[mid] <= target ){
+         else{
              l = mid+1;
          }
          
