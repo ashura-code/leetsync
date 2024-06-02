@@ -4,7 +4,7 @@ class Solution {
     if(x < 2)return x;
 
     int l = 1;
-    int r = x;
+    int r = x/2;
     int res = 0;
 
     while(l<=r){ 
