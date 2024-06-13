@@ -1,22 +1,27 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        int max_freq = 0;
-        int count[] = new int[26]; 
-        char[] arr = s.toCharArray(); // Corrected variable name
-        int left = 0; // Added initialization for left pointer
-        int ans = 0;
 
-        for (int right = 0; right < arr.length; right++) { 
-            count[arr[right]-'A']++;
-            max_freq = Math.max(max_freq, count[arr[right]-'A']);
+        int[] arr = new int[26];
+        int longest_substring = 0;
 
-            if (right - left + 1 - max_freq > k) { 
-                count[arr[left]-'A']--;
-                left++;
-            }
-            ans = Math.max(ans, right - left + 1);
-        }
+        int left = 0;
+        int max_frequency_of_curr_window = 0;
+        for(int right = 0; right < s.length() ; right++){ 
+             arr[s.charAt(right) -  'A']++; // update the frequency on each rep
+             max_frequency_of_curr_window = Math.max(max_frequency_of_curr_window , arr[s.charAt(right)- 'A']); // saving the character eith max frequency
+             int length_of_curr_window = right - left +1;
+             int minor_char_freq = length_of_curr_window - max_frequency_of_curr_window;
 
-        return ans;
+             if(minor_char_freq > k){
+                 arr[s.charAt(left)-'A']--;
+                 left++;
+             }
+
+             longest_substring = Math.max(longest_substring,right - left +1);
+
+        } 
+
+        return longest_substring;
+
     }
 }
