@@ -28,11 +28,10 @@ class Solution {
                       temp.add(nums[r]);
                       ans.add(temp);
                       l++;
+                      r--;
 
                       while(l<r && nums[l] == temp.get(1))l++;
-                      while(l<r && nums[r] == temp.get(2))r--;
-
-                      
+                      while(l<r && nums[r] == temp.get(2))r--;    
                  }
             }
 
