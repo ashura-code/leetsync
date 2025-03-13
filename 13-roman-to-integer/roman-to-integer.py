@@ -15,14 +15,14 @@ class Solution(object):
         }
 
         value = 0
+        length = len(s)
 
-        for i,roman in enumerate(s):
-            if(i>0 and kb[s[i-1]] < kb[roman]):
-                value -= kb[s[i-1]]
-                value += kb[roman] - kb[s[i-1]]
+        for i in range(length): 
+            curr_val = kb[s[i]]
+            if(i+1 < length and kb[s[i+1]] > curr_val):
+                value -= curr_val
             else:
-                value += kb[roman]
-
+                value += curr_val
         return value
 
         
