@@ -2,13 +2,13 @@
  * @param {number} n
  * @return {boolean}
  */
+ 
 var isPowerOfThree = function(n) {
-    let num =1;
-    while(n>=num){ 
-        if(num == n)return true;
-        num = num*3;
+    if(n<1)return false
+    let num = n;
+    while(num%3==0){
+        num = num/3;
+        console.log(num);
     }
-    console.log(num);
-    return false;
-    
+    return (num==1);
 };
